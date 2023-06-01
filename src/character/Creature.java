@@ -1,13 +1,11 @@
 package character;
 
 abstract public class Creature  {
-    ///필수 요소
-
-    // 공격력
-    // 체력
+    int Health;
+    int AttackPoint;
 
 
-    abstract int AttackPoint();
+    abstract int Attack();
        = this.공격력 * (랜덤요소);
 
        return 공격력;
