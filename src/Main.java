@@ -1,9 +1,13 @@
+import creature.Monster;
 import mainui.MainUi;
 import creature.Creature;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+    static List<Monster> monster_list =new ArrayList<>();
     public static void main(String[] args) {
         MainUi mainUi = new MainUi();
         mainUi.selectMenu(); //-> 게임 시작 / 게임 종료  // 게임 시작 -> Static bit on : Gamestart

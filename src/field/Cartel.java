@@ -14,7 +14,6 @@ public class Cartel {
     static int [] monster_Hp = {10,20,30,40,50};
     static int [] monster_Sheid = {1,2,3,4,5};
 
-
     public static void main(String[] args) {
         for (int i = 0; i < 5; i++) {
             String name = monster_Name[i];
