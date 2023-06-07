@@ -1,12 +1,8 @@
 package creaturedata;
-
-import creature.Monster;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.Scanner;
 public class MonsterData {
     public static void main(String[] args) {
@@ -48,4 +44,9 @@ public class MonsterData {
             System.err.println(e.getMessage());
         }
     }
+    public void ismonster(){
+
+
+    }
+
 }
