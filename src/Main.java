@@ -15,8 +15,9 @@ public class Main {
 
         while(MainUi.isFineGameStart()){
             if(Human.isCreated){
-                //필드 함수();
-                BOX.get(0).getAttackpoint();
+                //필드 필드 = new 필드(클래스);
+                //필드(
+
             }else{
                 makeHuman();
             }
@@ -26,7 +27,7 @@ public class Main {
     }
 
     public static void makeHuman(){
-        System.out.println("1.캐릭터 생성 2. 되돌아가기");
+        System.out.println("1.캐릭터 생성 2. 캐릭터 불러오기 3. 되돌아가기");
         int mode = Integer.parseInt(sc.nextLine());
         selectjob(mode);
 
@@ -39,8 +40,11 @@ public class Main {
             System.out.println("1.전사 2.마법사 3.도적");
             int mode2 = Integer.parseInt(sc.nextLine());
             createdHuman(mode2);
-        }else{ makeHuman();
-
+        }else if(mode == 2){
+            //여기에 캐릭터 불러오기 관해 자료 읽기 시작.
+            //불러올 데이터를 보여주기
+        }
+        else{ makeHuman();
         }
 
     }
