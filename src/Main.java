@@ -1,6 +1,7 @@
 import MainUi.MainUi;
 import character.Human;
 import character.Jobclass;
+import field.Field;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,15 +9,17 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
-    List<Human> BOX= new ArrayList<>();
+    static List<Human> BOX= new ArrayList<>();
     public static void main(String[] args) {
-        MainUi mainUi = new MainUi();
-        mainUi.selectMenu(sc); //-> 게임 시작 / 게임 종료  // 게임 시작 -> Static bit on : Gamestart
+        if(!MainUi.isFineGameStart()) {
+            MainUi mainUi = new MainUi();
+            mainUi.selectMenu(sc); //-> 게임 시작 / 게임 종료  // 게임 시작 -> Static bit on : Gamestart
+        }
 
         while(MainUi.isFineGameStart()){
             if(Human.isCreated){
-                //필드 필드 = new 필드(클래스);
-                //필드(
+
+               field.select();
 
             }else{
                 makeHuman();
@@ -56,6 +59,7 @@ public class Main {
           //  Human magician = new Human()
 
         }
+        Field field = new Field(BOX.get(0));
     }
 }
 

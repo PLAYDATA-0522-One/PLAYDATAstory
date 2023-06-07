@@ -4,6 +4,9 @@ public class Creature {
     private int hp;
     private int attackpoint;
 
+
+    public Creature() {}
+
     public Creature(int hp,int attackpoint)
     {
         this.hp=hp;
