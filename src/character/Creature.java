@@ -5,8 +5,6 @@ public class Creature {
     private int attackpoint;
 
 
-    public Creature() {}
-
     public Creature(int hp,int attackpoint)
     {
         this.hp=hp;
@@ -22,7 +20,20 @@ public class Creature {
         this.hp = hp;
     }
 
-    public int getAttackpoint() { //어택포인트 연산에 필요
+
+    public int getAttackpoint() { // 내 현재 hp 불러올때 필요
+        return attackpoint;
+    }
+    public void setAttackpoint(int attackpoint) { // 내 현재 hp 불러올때 필요
+        this.attackpoint = attackpoint;
+    }
+
+
+    public void GetAttackpoint(int attackpoint) { // 포션 먹을 때 필요함 .
+        this.attackpoint = attackpoint;
+    }
+
+    public int makeAttackpoint() { //어택포인트 연산에 필요
         int attackValue = (int) (attackpoint * Math.random()) ;
         return attackValue;
     }
