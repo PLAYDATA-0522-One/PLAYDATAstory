@@ -1,13 +1,16 @@
 package Map;
 
+import Map.Field.field;
+
 import java.util.Scanner;
 
 public class GameMap {
     // public static Human human;
 
     Scanner sc = new Scanner(System.in);
-    // field[][] .. 각 필드타입이
-    static int[][] map = new int[3][4]; // 맵으로 사용 예정 4 X 5 짜리
+    field[][] stage = new field[3][4]; //.. 각 필드타입이
+
+    // static int[][] map = new int[3][4]; // 맵으로 사용 예정 4 X 5 짜리
     static int i, j = 0; // 위치데이터는 i,j가 갖고있다. // 캐릭터가 갖고있어야한다. 수정필요.
     String errSentence = "그곳으로 이동할 수 없습니다.";
     String clrSentence = "이미 클리어 하였습니다.";
@@ -23,7 +26,6 @@ public class GameMap {
         System.out.println("1. 위 2. 아래 3. 오른쪽 4. 왼쪽");
         int selectDirection = Integer.parseInt(sc.nextLine());
         moveWhere(selectDirection);
-
     }
 
     private void moveWhere(int selectDirection) {
@@ -39,8 +41,8 @@ public class GameMap {
     private void changeDirection(int Direction){
         try {
             situation(Direction);
-            map[i][j] = 1; // clear
-
+            stage[i][j].eventGeneration();
+            // -> 여기에서 정보 업데이트
         } catch (Exception e) {
             System.out.println(errSentence);
             select();
@@ -62,21 +64,17 @@ public class GameMap {
         else if(Direction == 4){
             j = j - 1;
         }
-
     }
-
-    public static int[][] Map() {
-        return map;
-    }
-
-    public int I() {
-        return i;
-    }
-
-    public int J() {
-        return j;
-    }
-
-
-
+//
+//    public static int[][] Map() {
+//        return map;
+//    }
+//
+//    public int I() {
+//        return i;
+//    }
+//
+//    public int J() {
+//        return j;
+//    }
 }

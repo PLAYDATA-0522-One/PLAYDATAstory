@@ -1,5 +1,7 @@
 package GameController;
 
+import Global.Manager;
+
 import java.util.Scanner;
 
 public class MainController {
@@ -28,12 +30,13 @@ public class MainController {
             return GameStartBit;
              }
 
-    public void 게임시작및캐릭터생성 () {
+    public void startGame () {
             if (!GameStartBit) {
                 selectMenu(); //-> 게임 시작 / 게임 종료  // 게임 시작 -> Static bit on : Gamestart
             }
            else if (GameStartBit) {
                 new CharacterController().makeHuman();
+
             }
         }
     }

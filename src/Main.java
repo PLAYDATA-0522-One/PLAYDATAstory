@@ -1,14 +1,16 @@
 import GameController.MainController;
 import GameController.CharacterController;
+import Global.Manager;
 
 public class Main {
     static MainController mainController = MainController.getInstance();
     public static void main(String[] args) {
+
         while(true) {
-            if (!CharacterController.isCreated) {
-                mainController.게임시작및캐릭터생성();
-            } else if (CharacterController.isCreated) {
-             //   field.행동함수();
+            if (Manager.human == null) {
+                mainController.startGame();
+            } else if (Manager.human != null) {
+             Gamemap.
             }
         }
 
