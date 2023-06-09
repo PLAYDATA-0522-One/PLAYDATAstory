@@ -23,12 +23,12 @@ public class field {
         } else if (Type ==1) {
             마을();
         } else if (Type == 2) {
-            중간보스(); //예시
+            //중간보스(); //예시
         }
-        클래스.갱신함수();
+        //클래스.갱신함수();
         //갱신함수() {
         // 1차(); - > 캐릭터 상태 업데이트
-            if(c)
+           // if(c)
         // 2차();
         // 3차();
         // };
@@ -46,7 +46,7 @@ public class field {
     }
     public void 마을ACT(int mode) {
     if(mode == 1){
-        town.함수();
+        //town.함수();
     }
     else if(mode == 2){
 

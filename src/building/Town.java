@@ -9,7 +9,7 @@ public class Town {
 
 
         Town town = new Town();
-        town.run();
+      //  town.run();
 
     public void run() {
         Shop shop = new Shop();
