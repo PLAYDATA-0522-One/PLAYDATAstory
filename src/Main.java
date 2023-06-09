@@ -1,21 +1,14 @@
-import GameMenu.MainUi;
-import GameMenu.MakeCharacter;
-import character.Human;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import GameController.MainController;
+import GameController.CharacterController;
 
 public class Main {
-    static Scanner sc = new Scanner(System.in);
-    static List<Human> BOX = new ArrayList<>();
-    static MainUi mainUi = MainUi.getInstance();
+    static MainController mainController = MainController.getInstance();
     public static void main(String[] args) {
         while(true) {
-            if (!MakeCharacter.isCreated) {
-                mainUi.게임시작및캐릭터생성();
-            } else if (MakeCharacter.isCreated) {
-                field.행동함수();
+            if (!CharacterController.isCreated) {
+                mainController.게임시작및캐릭터생성();
+            } else if (CharacterController.isCreated) {
+             //   field.행동함수();
             }
         }
 

@@ -1,15 +1,14 @@
-package GameMenu;
+package GameController;
 
 import character.Human;
 import character.Jobclass;
-import Map.Move;
 
 import java.util.Scanner;
 
-public class MakeCharacter {
+public class CharacterController {
 
-    private static Human character;
-    public static boolean isCreated = false;
+    public static Human character;
+    public static boolean isCreated = false; // 캐릭터가 null 이냐 아니냐만 판단해도 boolean 판단 가능
     Scanner sc = new Scanner(System.in);
 
 
@@ -48,4 +47,5 @@ public class MakeCharacter {
     public Human getCharacter() {
         return character;
     }
+
 }

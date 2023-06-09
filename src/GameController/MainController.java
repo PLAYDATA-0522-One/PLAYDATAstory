@@ -1,21 +1,16 @@
-package GameMenu;
-
-import character.Human;
-import Map.Move;
+package GameController;
 
 import java.util.Scanner;
 
-public class MainUi {
-    private static MainUi mainUi;
+public class MainController {
+    private static MainController mainController;
     private boolean GameStartBit = false;
     Scanner sc = new Scanner(System.in);
 
-    public  static MainUi getInstance() {
-        if (mainUi == null) mainUi = new MainUi();
-        return mainUi;
+    public  static MainController getInstance() {
+        if (mainController == null) mainController = new MainController();
+        return mainController;
     }
-
-
         public void selectMenu (){
 
             System.out.println("1. 게임시작 2. 게임 종료"); // 프린트 값 다시 설정하기
@@ -38,7 +33,7 @@ public class MainUi {
                 selectMenu(); //-> 게임 시작 / 게임 종료  // 게임 시작 -> Static bit on : Gamestart
             }
            else if (GameStartBit) {
-                new MakeCharacter().makeHuman();
+                new CharacterController().makeHuman();
             }
         }
     }
