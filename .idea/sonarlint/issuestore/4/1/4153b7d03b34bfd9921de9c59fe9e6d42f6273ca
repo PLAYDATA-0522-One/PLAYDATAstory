@@ -1,0 +1,10 @@
+
+€
+java:S4165"cRemove this useless assignment; "sheid" already holds the assigned value along all execution paths.(›¡ûı8Ö¦Ë³‡1
+[
+java:S5993"9Change the visibility of this constructor to "protected".(ïÚ¥ÿÿÿÿÿ8Ù¦Ë³‡1
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¥¢ş³8Û¦Ë³‡1
+X	java:S125"<This block of commented-out lines of code should be removed.(æúÙ¶8Ş¦Ë³‡1
+L
+java:S1656"/Remove or correct this useless self-assignment.(›¡ûı8ß¦Ë³‡1
