@@ -1,7 +1,6 @@
 package GameController;
 
 import domain.SignupDto;
-import repository.UserRepository;
 import service.UserService;
 
 import java.util.Scanner;
