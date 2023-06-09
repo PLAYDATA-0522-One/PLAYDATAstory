@@ -2,7 +2,7 @@ package character;
 
 public class Human  extends Creature {
 
-    public static boolean isCreated = false;
+
     Jobclass job;
 
 

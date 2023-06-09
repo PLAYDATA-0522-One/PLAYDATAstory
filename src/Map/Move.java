@@ -36,9 +36,9 @@ public class Move {
         }
     }
 
-    private void 위치이동함수2(int k){
+    private void 위치이동함수2(int Direction){
         try {
-            상황판단함수(k);
+            상황판단함수(Direction);
             map[i][j] = 1;
             act.eventGeneration(i, j);
         } catch (Exception e) {

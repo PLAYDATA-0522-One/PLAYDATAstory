@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 public class MakeCharacter {
 
-    public static Human character;
+    private static Human character;
+    public static boolean isCreated = false;
     Scanner sc = new Scanner(System.in);
 
 
@@ -18,7 +19,7 @@ public class MakeCharacter {
         selectjob(mode);
 
     }
-    public void selectjob(int mode){
+    private void selectjob(int mode){
 
         if (mode == 1) {
             System.out.println("1.전사 2.마법사 3.도적");
@@ -31,15 +32,20 @@ public class MakeCharacter {
         else{ makeHuman();}
 
     }
-    public void createdHuman(int mode){
+    private void createdHuman(int mode){
         if(mode == 1){
             Human warrior = new Human(150,15, Jobclass.WARRIOR);
-            BOX.add(warrior);
+            character = warrior;
         } else if (mode ==2) {
             Human magician = new Human(75,30,Jobclass.MAGICIAN);
+            character = magician;
         } else if (mode == 3) {
             Human theif = new Human(100,20,Jobclass.THIEF);
+            character = theif;
         }
-        Move move = new Move(BOX.get(0));
+    }
+
+    public Human getCharacter() {
+        return character;
     }
 }

@@ -22,7 +22,6 @@ public class MainUi {
             int num = Integer.parseInt(sc.nextLine()); // num을 적절한 말로 바꿔주시오
             dataProcess(num);
         }
-
         public void dataProcess ( int num){
             if (num == 1) {
                 GameStartBit = true;
@@ -34,24 +33,12 @@ public class MainUi {
             return GameStartBit;
              }
 
-    public void ss () {
+    public void 게임시작및캐릭터생성 () {
             if (!GameStartBit) {
                 selectMenu(); //-> 게임 시작 / 게임 종료  // 게임 시작 -> Static bit on : Gamestart
-
             }
-
-            while (GameStartBit) {
-                if (Human.isCreated) {
-                    Move move = new Move(BOX.get(0)); // getInstance 로 변경하기.
-                    move.select();
-                    BOX.get(0).setStatus(move.human);// 여기에서 데이터 받아오기.
-
-                    // 고민
-
-                } else {
-                   new MakeCharacter().makeHuman();
-
-                }
+           else if (GameStartBit) {
+                new MakeCharacter().makeHuman();
             }
         }
     }
