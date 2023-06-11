@@ -1,21 +1,23 @@
 import GameController.MainController;
 import GameController.CharacterController;
+import Global.Manager;
+import character.Human;
 
 public class Main {
-    static MainController mainController = MainController.getInstance();
     public static void main(String[] args) {
-        while(true) {
-            if (!CharacterController.isCreated) {
-                mainController.게임시작및캐릭터생성();
-            } else if (CharacterController.isCreated) {
-             //   field.행동함수();
+        while {
+            if (로그인 on 신호 x)
+                new MainController().selectMenu(); // 거의 끝남.
+            
+
+            else if (로그인 신호 on) {
+                게임시작을 하는것.
             }
         }
 
 
-        // while(Gamestart:true){if(캐릭터가 만들어지지 않았으면 B() //else(캐릭터가 만들어졌을 때) C();
-        //
-
+    }
+    public void bb{
 
     }
 }
