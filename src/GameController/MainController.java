@@ -31,8 +31,7 @@ public class MainController {
     public void 게임시작및캐릭터생성 () {
             if (!GameStartBit) {
                 selectMenu(); //-> 게임 시작 / 게임 종료  // 게임 시작 -> Static bit on : Gamestart
-            }
-           else if (GameStartBit) {
+            }else if (GameStartBit) {
                 new CharacterController().makeHuman();
             }
         }
