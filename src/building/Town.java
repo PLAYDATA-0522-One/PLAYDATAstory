@@ -1,5 +1,7 @@
 package building;
 
+import Global.Manager;
+
 import java.util.Scanner;
 
 public class Town {
@@ -59,6 +61,7 @@ public class Town {
             System.out.println("신전에서 나갑니다.");
         } else {
             System.out.println("잘못된 입력입니다.");
+            enterTemple();
         }
 
         sc.close();
@@ -66,5 +69,6 @@ public class Town {
 
     private void recovery() {
         System.out.println("체력을 회복합니다.");
+        Manager.human.setNowHp(Manager.human.getHp());
     }
 }

@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserRepository {
+    // 여기서 클래스를 만들어야한다.
     public boolean login(String id, String password)  {
         Connection conn = new JdbcConnection().getJdbc();
         String sql = "select * from (데이터테이블이름) where username = ? and password = ?";
