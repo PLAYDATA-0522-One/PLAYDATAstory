@@ -1,4 +1,4 @@
-package town;
+package building;
 
 import java.util.Scanner;
 

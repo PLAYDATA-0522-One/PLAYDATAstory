@@ -26,7 +26,7 @@ public class MainController {
 
         public boolean isGameStartBit() {
             return GameStartBit;
-             }
+    }
 
     public void 게임시작및캐릭터생성 () {
             if (!GameStartBit) {
