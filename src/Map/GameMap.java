@@ -25,7 +25,6 @@ public class GameMap {
         for (int i = 0; i < stage.length ; i++) {
             for (int j = 0; j < stage[i].length; j++) {
                 stage[i][j] = new field();
-
             }
 
         }
@@ -33,6 +32,7 @@ public class GameMap {
 
     public void select() {
       //  System.out.println(맵인쇄);
+        System.out.println("1. 위 2. 아래 3. 오른쪽 4. 왼쪽");
         try {
             int selectDirection = Integer.parseInt(sc.nextLine());
             moveWhere(selectDirection);
