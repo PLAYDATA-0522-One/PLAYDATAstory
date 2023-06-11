@@ -1,5 +1,6 @@
 package GameController;
 
+import Map.GameMap;
 import domain.SignupDto;
 import repository.UserRepository;
 import service.UserService;
@@ -7,6 +8,8 @@ import service.UserService;
 import java.util.Scanner;
 
 public class CharacterController {
+    static GameMap map = new GameMap();
+
     private static UserService service = UserService.getInstance();
 
     private Scanner sc;
@@ -33,7 +36,11 @@ public class CharacterController {
         String id = sc.nextLine();
         System.out.println("insert pw : ");
         String pw = sc.nextLine();
-        service.login(id,pw); //-> 이게 로그인이 되었다는 신호
+        boolean check = service.login(id,pw); //-> 이게 로그인이 되었다는 신호
+        while (check){
+            map.select();
+
+        }
         // 프로그램의 끝단.
     }
 

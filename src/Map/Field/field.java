@@ -23,7 +23,7 @@ public class field {
         } else if (Type ==1) {
             마을();
         } else if (Type == 2) {
-            //중간보스(); //예시
+            보스();
         }
         //클래스.갱신함수();
         //갱신함수() {
@@ -35,8 +35,10 @@ public class field {
     }
 
     public void 전투() {
+        System.out.println("전투");
     }
     public void 보스() {
+        System.out.println("보스");
     }
     public void 마을() {
         System.out.println("여기는 마을 입니다. 행동을 정해주세요.");
