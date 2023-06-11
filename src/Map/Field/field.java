@@ -15,7 +15,7 @@ public class field {
 
     public field() {
         this.Type =(int) (Math.random()*3);
-    }
+    } // 0<math < 3
 
     public void eventGeneration(){
         if(Type == 0){

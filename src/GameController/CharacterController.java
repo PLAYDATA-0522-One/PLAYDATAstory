@@ -20,6 +20,7 @@ public class CharacterController {
         int mode = Integer.parseInt(sc.nextLine());
         if (mode == 1) {
             login(sc);
+            //게임을 여기서 해야함
         } else if (mode == 2) {
             signup(sc);
         } else {
@@ -32,8 +33,8 @@ public class CharacterController {
         String id = sc.nextLine();
         System.out.println("insert pw : ");
         String pw = sc.nextLine();
-        service.login(id,pw);
-
+        service.login(id,pw); //-> 이게 로그인이 되었다는 신호
+        // 프로그램의 끝단.
     }
 
     private static void signup (Scanner sc){
