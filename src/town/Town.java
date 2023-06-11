@@ -16,11 +16,11 @@ public class Town {
         System.out.println("PlayData 상점입니다! 어서오세요^^");
         System.out.println("1.구매 2. 나가기");
 
-        int mode = Integer.parseInt(sc.nextLine());
+        String mode = sc.nextLine();
 
-        if (mode == 1) {
+        if (mode == "1") {
             buyItem();
-        } else if (mode == 2) {
+        } else if (mode == "2") {
             System.out.println("상점에서 나갑니다.");
         } else {
             System.out.println("잘못된 입력입니다.");
