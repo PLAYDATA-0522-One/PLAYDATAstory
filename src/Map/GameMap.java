@@ -10,7 +10,7 @@ public class GameMap {
     Scanner sc = new Scanner(System.in);
     field[][] stage = new field[3][4]; //.. 각 필드타입이
 
-    // static int[][] map = new int[3][4]; // 맵으로 사용 예정 4 X 5 짜리
+    //static int[][] map = new int[3][4]; // 맵으로 사용 예정 4 X 5 짜리
     static int i, j = 0; // 위치데이터는 i,j가 갖고있다. // 캐릭터가 갖고있어야한다. 수정필요.
     String errSentence = "그곳으로 이동할 수 없습니다.";
     String clrSentence = "이미 클리어 하였습니다.";
@@ -21,11 +21,24 @@ public class GameMap {
 //        this.human = human;
 //    }
 
+    public void makeMap(){
+        for (int i = 0; i < stage.length ; i++) {
+            for (int j = 0; j < stage[i].length; j++) {
+                stage[i][j] = new field();
+            }
+
+        }
+    }
+
     public void select() {
       //  System.out.println(맵인쇄);
         System.out.println("1. 위 2. 아래 3. 오른쪽 4. 왼쪽");
-        int selectDirection = Integer.parseInt(sc.nextLine());
-        moveWhere(selectDirection);
+        try {
+            int selectDirection = Integer.parseInt(sc.nextLine());
+            moveWhere(selectDirection);
+        }catch (Exception e){
+            System.out.println("잘못된 입력입니다.");
+        }
     }
 
     private void moveWhere(int selectDirection) {
