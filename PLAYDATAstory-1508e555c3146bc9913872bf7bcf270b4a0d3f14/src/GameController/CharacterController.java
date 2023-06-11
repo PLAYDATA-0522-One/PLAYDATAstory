@@ -1,5 +1,6 @@
 package GameController;
 
+import Map.GameMap;
 import domain.SignupDto;
 import service.UserService;
 
@@ -9,6 +10,8 @@ public class CharacterController {
     private static UserService service = UserService.getInstance();
 
     private static Scanner sc;
+
+    private static GameMap map = new GameMap();
 
     public CharacterController(Scanner sc) {
         this.sc = sc;
@@ -42,8 +45,13 @@ public class CharacterController {
             System.out.println("insert pw : ");
             String pw = sc.nextLine();
             boolean check = service.login(id,pw);
+            if(check)
+            {
+                map.makeMap();
+            }
             while(check){
-                System.out.println("1");
+                map.select();
+
             };
             //CharacterController.selectjob();
         }
