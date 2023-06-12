@@ -27,24 +27,26 @@ public class CharacterController {
     }
 
         private static void login (Scanner sc){
-            System.out.println("insert id : ");
+            System.out.println("아이디 : ");
             String id = sc.nextLine();
-            System.out.println("insert pw : ");
+            System.out.println("패스워드 : ");
             String pw = sc.nextLine();
             service.login(id,pw);
 
         }
 
         private static void signup (Scanner sc){
-            System.out.println("insert id : ");
+            System.out.println("아이디 : ");
             String id = sc.nextLine();
-            System.out.println("insert pw : ");
+            System.out.println("패스워드 : ");
             String pw = sc.nextLine();
-            System.out.println("직업은 전사, 도적, 마법사 중에 선택하시오");
-            System.out.println("insert job : ");
+            System.out.println("직업은 전사, 도적, 마법사 중에 선택하시오.");
+            System.out.println("직업 : ");
             String job = sc.nextLine();
+            System.out.println("캐릭터가 생성되었습니다. 로그인 하십시오.");
             SignupDto dto = new SignupDto(id, pw, job);
             service.signup(dto);
+            //캐릭터 생성후 게임시작으로 가야하는데 안가는 느낌 ?
         }
 
 
