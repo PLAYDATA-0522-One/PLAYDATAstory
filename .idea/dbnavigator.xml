@@ -13,8 +13,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="8db5df4e-3725-42de-aa93-a789e37471bc">
-      <console name="Connection" type="STANDARD" schema="test" session="Main">select * 
-from academy;</console>
+      <console name="Connection" type="STANDARD" schema="test" session="Main" />
     </connection>
     <connection id="51bb3eab-3f98-4639-8362-ca7642c3b0da">
       <console name="test" type="STANDARD" schema="test" session="Main" />

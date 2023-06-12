@@ -2,11 +2,14 @@ package Global;
 
 import Map.GameMap;
 import character.Human;
+import character.Humaninfo;
+import character.Monster;
 
 public class Manager { //extends thread{
     public static Human human = null;
     public static GameMap map;
-
+    public static Monster monster;
+    public static Humaninfo humaninfo;
     private static int fullHp;
 
     public void saveHp() {
@@ -19,4 +22,5 @@ public class Manager { //extends thread{
     public int getFullHp() {
         return fullHp;
     }
+    // history
 }

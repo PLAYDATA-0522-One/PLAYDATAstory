@@ -21,15 +21,15 @@ public class GameMap {
 //        this.human = human;
 //    }
 
-    static private void makeMap(){
+    public static void makeMap(){
         for (int i = 0; i < stage.length ; i++) {
             for (int j = 0; j < stage[i].length; j++) {
 
                 if((i == stage.length) && j == (stage[stage.length].length)) {
-                    stage[i][j] = new field(9);
+                    stage[i][j] = new field(9); //보스
                 }
-                 else if(i ==0 && j == 0){
-                     stage[i][j] = new field("Start");
+                else if(i ==0 && j == 0){
+                    stage[i][j] = new field("Start"); //
                 }else {
                     stage[i][j] = new field();
                 }
@@ -39,7 +39,7 @@ public class GameMap {
     }
 
     public void select() {
-       System.out.println( );
+        System.out.println( );
         System.out.println("1. 위 2. 아래 3. 오른쪽 4. 왼쪽");
         try {
             int selectDirection = Integer.parseInt(sc.nextLine());
@@ -71,12 +71,11 @@ public class GameMap {
             System.out.println(errSentence);
             i = tempI;
             j = tempJ;
-
             select();
         }
     }
 
-//    System.out.println("잘못된 입력입니다.");
+    //    System.out.println("잘못된 입력입니다.");
 //    select();
     private void situation(int Direction){
         if(Direction == 1){
@@ -92,7 +91,7 @@ public class GameMap {
             j = j - 1;
         }
     }
-//
+    //
 //    public static int[][] Map() {
 //        return map;
 //    }
