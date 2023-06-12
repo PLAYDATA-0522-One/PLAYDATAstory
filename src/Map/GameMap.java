@@ -27,9 +27,8 @@ public class GameMap {
 
                 if((i == stage.length) && j == (stage[stage.length].length)) {
                     stage[i][j] = new field(9);
-                }
-                 else if(i ==0 && j == 0){
-                     stage[i][j] = new field("Start");
+                } else if(i ==0 && j == 0){
+                    stage[i][j] = new field("Start");
                 }else {
                     stage[i][j] = new field();
                 }
@@ -39,7 +38,7 @@ public class GameMap {
     }
 
     public void select() {
-       System.out.println( );
+        System.out.println( );
         System.out.println("1. 위 2. 아래 3. 오른쪽 4. 왼쪽");
         try {
             int selectDirection = Integer.parseInt(sc.nextLine());
