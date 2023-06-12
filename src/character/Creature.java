@@ -2,11 +2,12 @@ package character;
 
 public class Creature {
     private int hp;
+    private int nowHp;
     private int attackpoint;
 
 
     public Creature(int hp,int attackpoint)
-    {
+    {   this.nowHp = hp;
         this.hp=hp;
         this.attackpoint=attackpoint;
 
@@ -16,8 +17,10 @@ public class Creature {
         return hp;
     }
 
-    public void setHp(int hp) { // 포션 먹을 때 필요함 .
-        this.hp = hp;
+    public int getNowHp(){return nowHp;}
+
+    public void setNowHp(int hp) { // 포션 먹을 때 필요함 .
+        this.nowHp = hp;
     }
 
 
@@ -44,7 +47,7 @@ public class Creature {
 
 
     public String getDamage (Creature creature) {
-        hp = hp - creature.getAttackpoint();
+        nowHp = nowHp - creature.getAttackpoint();
     return creature.getAttackpoint() + "의 데미지를 받았습니다.";
     }
 }
