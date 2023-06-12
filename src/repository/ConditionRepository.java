@@ -1,9 +1,7 @@
 package repository;
 
-import character.Human;
-import character.Humaninfo;
 import config.JdbcConnection;
-import domain.InformationDto;
+import domain.ConditonDto;
 import domain.SignupDto;
 
 import java.sql.Connection;
@@ -11,27 +9,26 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserRepository {
-    //여기서 클래스 생성
-    public boolean login(String id, String password)  {
+public class ConditionRepository {
+
+
+    public void checkUserConditon()  {
         Connection conn = new JdbcConnection().getJdbc();
-        String sql = "select * from user_id where username = ? and password = ?";
-        String name = null;
-        String job2 = null;
-        Integer id2=null;
+        // 계정에 따라서 확인 후 보여줌, 시간 가장 최근
+        String sql = "select * from user_condition where map_x = ? and map_y = ? and map_name = ?";
+        String username = null;
+        String job = null;
+        Integer x=null;
+        Integer y=null;
+        String map_name = null;
         try {
             PreparedStatement psmt = conn.prepareStatement(sql);
-            psmt.setString(1,id);
-            psmt.setString(2,password);
             ResultSet resultSet = psmt.executeQuery();
             while (resultSet.next()) {
-                id2 = resultSet.getInt("id");
-                name = resultSet.getString("username");
-                job2 = resultSet.getString("job");
-                GetJobRepository.getjobList(id2,name,job2);
-                System.out.println(name +"님 "+" 환영해요");
-                System.out.println("현재 캐릭터는 입니다.");
-                // tttt
+                x = resultSet.getInt("map_x");
+                y = resultSet.getInt("map_y");
+                map_name = resultSet.getString("map_name");
+                System.out.println("현재 캐릭터의 위치는" +map_name+"의"+x+y+"입니다.");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -41,22 +38,21 @@ public class UserRepository {
         } catch (SQLException e) {
             System.out.println("conn 닫기 실패");;
         }
-        return name != null;
     }
-
-    public void insertUsers(SignupDto dto) {
+    public void changeUserConditon( ConditonDto dto) {
         Connection conn = new JdbcConnection().getJdbc();
-        String sql ="insert into user_id(username, password, job)\n" +
-                "value (?, ?, ?);";
+//        String sql ="insert into user_id(username, password, job)\n" +
+//                "value (?, ?, ?);";
+        String sql = "select * from user_condition where map_x = ? and map_y = ? and map_name = ?";
+        //변경
         try {
             PreparedStatement psmt = conn.prepareStatement(sql);
-            psmt.setString(1,dto.getUsername());
-            psmt.setString(2, dto.getPassword());
-            psmt.setString(3, dto.getjob());
+            //psmt.setString(1,dto.getX());
+            //psmt.setString(2, dto.getY());
+            //psmt.setString(3, dto.getMap_name());
             if (psmt.executeUpdate() == 0) {
                 System.out.println("insertUsers err");
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -66,5 +62,4 @@ public class UserRepository {
             System.out.println("conn 닫기 실패");;
         }
     }
-
 }

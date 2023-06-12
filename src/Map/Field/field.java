@@ -4,14 +4,20 @@ import Global.Manager;
 import Map.GameMap;
 import building.Town;
 import character.Human;
+import character.Humaninfo;
+import character.Monster;
 
 import javax.swing.*;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class field {
 
     Scanner sc = new Scanner(System.in);
+    public static List<Monster> Monsters = new ArrayList<>();
+    public static List<Humaninfo> Humaninfoes = new ArrayList<>();
     Town town = new Town(sc);
     int Type;
 
@@ -20,7 +26,7 @@ public class field {
 
     //몬스터 테이블 만들어야함.
     boolean Clear = false;
-//스캐너 밖에서 끌어와야함.!
+    //스캐너 밖에서 끌어와야함.!
     public field() {
         this.Type =(int) (Math.random()*9);
     } // 0<math < 9
@@ -54,15 +60,13 @@ public class field {
     public void battleOn() {
         i = new GameMap().I();
         j = new GameMap().J();
-        int where = i + j;
         System.out.println("적을 만났습니다. 전투를 시작합니다.");
 
-        if(where < 2){
-   //     몬스터 클래스 =   배열에서get 해오기 (Math.random()*((int) 몬스터 클래스 배열 길이/3))
-        }else if( 2<= where && where < 3){
-
-        }else if( 3<= where && where <= 4)
-        ; //
+        if(i + j < 3){
+            //     몬스터 클래스 =   배열에서get 해오기 (Math.random()*((int) 몬스터 클래스 배열 길이/3))
+        }
+//        else if( 3<= i + j < 4)
+//            ; //
         //몬스터 클래스에 적 넣기
         battleFieldSelect();
     } //보스랑 적이랑 하나로 합칠 순 있음.
@@ -128,14 +132,14 @@ public class field {
         townSituation(mode);
     }
     public void townSituation(String mode) {
-    if(mode == "?"){
-        town.enterShop();
-    }
-    else if(mode == "2"){
-        town.enterTemple();
-    }else{
-        System.out.println("잘못된 선택입니다. 다시 골라주세요.");
-        goToTown();
-         }
+        if(mode == "?"){
+            town.enterShop();
+        }
+        else if(mode == "2"){
+            town.enterTemple();
+        }else{
+            System.out.println("잘못된 선택입니다. 다시 골라주세요.");
+            goToTown();
+        }
     }
 }
