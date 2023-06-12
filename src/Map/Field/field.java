@@ -54,11 +54,14 @@ public class field {
     public void battleOn() {
         i = new GameMap().I();
         j = new GameMap().J();
+        int where = i + j;
         System.out.println("적을 만났습니다. 전투를 시작합니다.");
 
-        if(i + j < 3){
+        if(where < 2){
    //     몬스터 클래스 =   배열에서get 해오기 (Math.random()*((int) 몬스터 클래스 배열 길이/3))
-        }else if( 3<= i + j < 4)
+        }else if( 2<= where && where < 3){
+
+        }else if( 3<= where && where <= 4)
         ; //
         //몬스터 클래스에 적 넣기
         battleFieldSelect();

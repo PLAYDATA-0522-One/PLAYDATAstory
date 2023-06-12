@@ -21,7 +21,7 @@ public class GameMap {
 //        this.human = human;
 //    }
 
-    static private void makeMap(){
+    static public void makeMap(){
         for (int i = 0; i < stage.length ; i++) {
             for (int j = 0; j < stage[i].length; j++) {
 
