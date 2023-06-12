@@ -1,6 +1,7 @@
 package Map.Field;
 
 import character.Human;
+import character.Humaninfo;
 import character.Monster;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 public class field {
     Scanner sc = new Scanner(System.in);
     public static List<Monster> Monsters = new ArrayList<>();
+    public static List<Humaninfo> Humaninfoes = new ArrayList<>();
 
 
     int Type;

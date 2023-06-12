@@ -1,6 +1,9 @@
 package repository;
 
+import character.Human;
+import character.Humaninfo;
 import config.JdbcConnection;
+import domain.InformationDto;
 import domain.SignupDto;
 
 import java.sql.Connection;
@@ -12,17 +15,21 @@ public class UserRepository {
     public boolean login(String id, String password)  {
         Connection conn = new JdbcConnection().getJdbc();
         String sql = "select * from user_id where username = ? and password = ?";
-        String username = null;
-        String job = null;
+        String name = null;
+        String job2 = null;
+        Integer id2=null;
         try {
             PreparedStatement psmt = conn.prepareStatement(sql);
             psmt.setString(1,id);
             psmt.setString(2,password);
             ResultSet resultSet = psmt.executeQuery();
             while (resultSet.next()) {
-                username = resultSet.getString("username");
-                job = resultSet.getString("job");
-                System.out.println(username +" "+job+" 환영해요");
+                id2 = resultSet.getInt("id");
+                name = resultSet.getString("username");
+                job2 = resultSet.getString("job");
+                GetJobRepository.getjobList(id2,name,job2);
+                System.out.println(name +"님 "+" 환영해요");
+                System.out.println("현재 캐릭터는 입니다.");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -32,7 +39,7 @@ public class UserRepository {
         } catch (SQLException e) {
             System.out.println("conn 닫기 실패");;
         }
-        return username != null;
+        return name != null;
     }
 
     public void insertUsers(SignupDto dto) {
@@ -57,4 +64,5 @@ public class UserRepository {
             System.out.println("conn 닫기 실패");;
         }
     }
+
 }

@@ -6,7 +6,7 @@ public class Human  extends Creature {
     Jobclass job;
 
 
-    public Human(int hp, int AttackPoint, Jobclass job) {
+    public Human(int hp, int AttackPoint) {
         super(hp,AttackPoint);
     }
     public void setStatus(Human human){
