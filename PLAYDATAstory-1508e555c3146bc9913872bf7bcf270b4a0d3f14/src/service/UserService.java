@@ -18,4 +18,10 @@ public class UserService {
     public void signup(SignupDto dto) {
         new UserRepository().insertUsers(dto);
     }
+
+    public static String returnid(String id)
+    {
+        return id;
+    }
+
 }

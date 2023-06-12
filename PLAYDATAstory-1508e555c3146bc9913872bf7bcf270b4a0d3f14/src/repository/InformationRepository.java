@@ -60,6 +60,30 @@ public class InformationRepository {
             System.out.println("conn 닫기 실패");;
         }
     }
+    public void setUserInformation(int x, int y, int id) {
+        Connection conn = new JdbcConnection().getJdbc();
+//        String sql ="insert into user_id(username, password, job)\n" +
+//                "value (?, ?, ?);";
+        String sql ="insert into user_condition(map_x, map_y, id)\n" +
+                "value (?, ?, ?);";
+        //변경
+        try {
+            PreparedStatement psmt = conn.prepareStatement(sql);
+            //psmt.setString(1,dto.getX());
+            //psmt.setString(2, dto.getY());
+            //psmt.setString(3, dto.getMap_name());
+            if (psmt.executeUpdate() == 0) {
+                System.out.println("insertUsers err");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("conn 닫기 실패");;
+        }
+    }
 
 
 }

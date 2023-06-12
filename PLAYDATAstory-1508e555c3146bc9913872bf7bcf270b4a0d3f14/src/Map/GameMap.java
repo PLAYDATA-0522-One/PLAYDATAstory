@@ -66,6 +66,7 @@ public class GameMap {
         try {
             situation(Direction);
             stage[i][j].eventGeneration();
+
             // -> 여기에서 정보 업데이트
         } catch (Exception e) {
             System.out.println(errSentence);
