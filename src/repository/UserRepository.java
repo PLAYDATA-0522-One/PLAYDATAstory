@@ -1,6 +1,9 @@
 package repository;
 
+import character.Human;
+import character.Humaninfo;
 import config.JdbcConnection;
+import domain.InformationDto;
 import domain.SignupDto;
 
 import java.sql.Connection;
@@ -9,21 +12,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserRepository {
-    // 여기서 클래스를 만들어야한다.
+    //여기서 클래스 생성
     public boolean login(String id, String password)  {
         Connection conn = new JdbcConnection().getJdbc();
-        String sql = "select * from (데이터테이블이름) where username = ? and password = ?";
-        Integer id1 = null;
+        String sql = "select * from user_id where username = ? and password = ?";
         String name = null;
+        String job2 = null;
+        Integer id2=null;
         try {
             PreparedStatement psmt = conn.prepareStatement(sql);
             psmt.setString(1,id);
             psmt.setString(2,password);
             ResultSet resultSet = psmt.executeQuery();
             while (resultSet.next()) {
-                id1 = resultSet.getInt("id");
+                id2 = resultSet.getInt("id");
                 name = resultSet.getString("username");
-                System.out.println(id1 +" "+name+"환영해요");
+                job2 = resultSet.getString("job");
+                GetJobRepository.getjobList(id2,name,job2);
+                System.out.println(name +"님 "+" 환영해요");
+                System.out.println("현재 캐릭터는" +name+job2+"입니다.");
+                // tttt
+                // -> 클래스화
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -33,12 +42,12 @@ public class UserRepository {
         } catch (SQLException e) {
             System.out.println("conn 닫기 실패");;
         }
-        return id1 != null;
+        return name != null;
     }
 
     public void insertUsers(SignupDto dto) {
         Connection conn = new JdbcConnection().getJdbc();
-        String sql ="insert into (데이터테이블이름)(username, password, job)\n" +
+        String sql ="insert into user_id(username, password, job)\n" +
                 "value (?, ?, ?);";
         try {
             PreparedStatement psmt = conn.prepareStatement(sql);
@@ -58,4 +67,5 @@ public class UserRepository {
             System.out.println("conn 닫기 실패");;
         }
     }
+
 }

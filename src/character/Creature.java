@@ -5,6 +5,8 @@ public class Creature {
     private int nowHp;
     private int attackpoint;
 
+    Position position;
+
 
     public Creature(int hp,int attackpoint)
     {   this.nowHp = hp;

@@ -12,7 +12,6 @@ public class UserService {
     }
 
     public boolean login(String id, String password) {
-
         return new UserRepository().login(id, password);
     }
 

@@ -4,20 +4,29 @@ import Global.Manager;
 import Map.GameMap;
 import building.Town;
 import character.Human;
+import character.Humaninfo;
+import character.Monster;
 
 import javax.swing.*;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class field {
 
     Scanner sc = new Scanner(System.in);
+    public static List<Monster> Monsters = new ArrayList<>();
+    public static List<Humaninfo> Humaninfoes = new ArrayList<>();
     Town town = new Town(sc);
     int Type;
 
+    private int i;
+    private int j;
+
     //몬스터 테이블 만들어야함.
     boolean Clear = false;
-//스캐너 밖에서 끌어와야함.!
+    //스캐너 밖에서 끌어와야함.!
     public field() {
         this.Type =(int) (Math.random()*9);
     } // 0<math < 9
@@ -25,6 +34,7 @@ public class field {
     public field(int Final){
         this.Type = Final;
     }
+
     public field(String string){
         Clear = true;
     }
@@ -48,14 +58,15 @@ public class field {
     }
 
     public void battleOn() {
-        int i = new GameMap().I();
-        int j = new GameMap().J();
+        i = new GameMap().I();
+        j = new GameMap().J();
         System.out.println("적을 만났습니다. 전투를 시작합니다.");
 
-        if(i + j < 2){
-   //     몬스터 클래스 =   배열에서get 해오기 (Math.random()*((int) 몬스터 클래스 배열 길이/3))
-        }else if( 2<= i + j < 4)
-        ; //
+        if(i + j < 3){
+            //     몬스터 클래스 =   배열에서get 해오기 (Math.random()*((int) 몬스터 클래스 배열 길이/3))
+        }
+//        else if( 3<= i + j < 4)
+//            ; //
         //몬스터 클래스에 적 넣기
         battleFieldSelect();
     } //보스랑 적이랑 하나로 합칠 순 있음.
@@ -97,37 +108,38 @@ public class field {
                 break;
             default:
 
-                if(상대피가 0 인지 체크){
-                    if(상대가 보스였는지 체크 ( 나의 위치체크)){
-                    System.out.println("클리어 하였습니다 축하합니다.");
-                        }
-                }
-                break;
-        }
-                else if (내피가 0 인지 체크){
-            System.out.println("gameover");
-               //여기서 자바 완전 종료?
-            }else{
-            (battleFieldSelect());
-            }
+                if (Manager.monster.getHp() <= 0) {
+                    if (Type == 9) {
+                        System.out.println("클리어 하였습니다 축하합니다.");
+                        System.exit(0);
+                    }
+                    System.out.println("적을 무찔렀습니다.");
+                    return;
+                } else if (Manager.human.getHp() <= 0) {
+                    System.out.println("gameover");
+                    System.exit(0);
 
+                } else {
+                    battleFieldSelect();
+                }
         }
+    }
 
     public void goToTown() {
         System.out.println("여기는 마을 입니다. 행동을 정해주세요.");
         System.out.println("1. 상점가기(패치중) 2. 회복하기");
-        int mode = Integer.parseInt(sc.nextLine());
+        String mode = sc.nextLine();
         townSituation(mode);
     }
-    public void townSituation(int mode) {
-    if(mode == 1){
-        town.enterShop();
-    }
-    else if(mode == 2){
-        town.enterTemple();
-    }else{
-        System.out.println("잘못된 선택입니다. 다시 골라주세요.");
-        goToTown();
-    }
+    public void townSituation(String mode) {
+        if(mode == "?"){
+            town.enterShop();
+        }
+        else if(mode == "2"){
+            town.enterTemple();
+        }else{
+            System.out.println("잘못된 선택입니다. 다시 골라주세요.");
+            goToTown();
+        }
     }
 }

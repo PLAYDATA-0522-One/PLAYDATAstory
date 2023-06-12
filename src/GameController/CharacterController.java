@@ -39,11 +39,14 @@ public class CharacterController {
         String pw = sc.nextLine();
         boolean check = service.login(id,pw); //-> 이게 로그인이 되었다는 신호
         // 여기서 맵을 만들 예정.
-        new Manager().saveHp(); // 첫 시작 hp 저장. 이걸 클래스 만들때 같이 처리해도될듯.
+        new Manager().saveHp();
+
+
+        if(check)
+        {map.makeMap();}// 첫 시작 hp 저장. 이걸 클래스 만들때 같이 처리해도될듯.
 
         while (check){
             map.select();
-
         }
         // 프로그램의 끝단.
     }
