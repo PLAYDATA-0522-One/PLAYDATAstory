@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserRepository {
+    //여기서 클래스 생성
     public boolean login(String id, String password)  {
         Connection conn = new JdbcConnection().getJdbc();
         String sql = "select * from user_id where username = ? and password = ?";

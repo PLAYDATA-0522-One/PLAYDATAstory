@@ -1,5 +1,6 @@
 package GameController;
 
+import Global.Manager;
 import Map.GameMap;
 import domain.SignupDto;
 import service.UserService;
@@ -18,7 +19,7 @@ public class CharacterController {
     }
 
     public static void selectjob() {
-        System.out.println("1. 로그인, 2. 회원가입, 3.캐릭터 육성, 4.돌아가기");
+        System.out.println("1. 로그인, 2. 회원가입, 3.돌아가기");
         int mode = Integer.parseInt(sc.nextLine());
         if (mode == 1) {
             login(sc);
@@ -26,10 +27,8 @@ public class CharacterController {
         } else if (mode == 2) {
             signup(sc);
             //계정 생성후 테이블에 넣어줌
-        } else if (mode ==3){
-            //field.start();
         }
-        else if (mode ==4){
+        else if (mode ==3){
             MainController.selectMenu();
         }
         else {
@@ -45,6 +44,7 @@ public class CharacterController {
             System.out.println("insert pw : ");
             String pw = sc.nextLine();
             boolean check = service.login(id,pw);
+            new Manager().saveHp();
             if(check)
             {
                 map.makeMap();

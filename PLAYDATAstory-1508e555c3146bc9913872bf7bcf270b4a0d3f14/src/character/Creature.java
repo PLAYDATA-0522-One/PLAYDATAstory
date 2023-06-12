@@ -2,14 +2,24 @@ package character;
 
 public class Creature {
     private int hp;
+    private int nowHp;
     private int attackpoint;
 
 
     public Creature(int hp,int attackpoint)
     {
         this.hp=hp;
+        this.nowHp=hp;
         this.attackpoint=attackpoint;
 
+    }
+
+    public int getNowHp() {
+        return nowHp;
+    }
+
+    public void setNowHp(int nowHp) {
+        this.nowHp = hp;
     }
 
     public int getHp() { // 내 현재 hp 불러올때 필요
@@ -44,7 +54,7 @@ public class Creature {
 
 
     public String getDamage (Creature creature) {
-        hp = hp - creature.getAttackpoint();
+        nowHp = nowHp - creature.getAttackpoint();
     return creature.getAttackpoint() + "의 데미지를 받았습니다.";
     }
 }
