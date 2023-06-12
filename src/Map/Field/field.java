@@ -97,18 +97,18 @@ public class field {
                 break;
             default:
 
-                if (상대피가 0 인지 체크){
+                if(상대피가 0 인지 체크){
                     if(상대가 보스였는지 체크 ( 나의 위치체크)){
                     System.out.println("클리어 하였습니다 축하합니다.");
                         }
                 }
                 break;
-            }
+        }
                 else if (내피가 0 인지 체크){
             System.out.println("gameover");
                //여기서 자바 완전 종료?
-            }else(battleFieldSelect()) {
-
+            }else{
+            (battleFieldSelect());
             }
 
         }
