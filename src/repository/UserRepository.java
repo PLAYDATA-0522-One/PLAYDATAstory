@@ -16,25 +16,15 @@ public class UserRepository {
     public boolean login(String id, String password)  {
         Connection conn = new JdbcConnection().getJdbc();
         String sql = "select * from user_id where username = ? and password = ?";
-<<<<<<< HEAD
-        String username = null;
-        String job = null;
-=======
         String name = null;
         String job2 = null;
         Integer id2=null;
->>>>>>> taeyeol
         try {
             PreparedStatement psmt = conn.prepareStatement(sql);
             psmt.setString(1,id);
             psmt.setString(2,password);
             ResultSet resultSet = psmt.executeQuery();
             while (resultSet.next()) {
-<<<<<<< HEAD
-                username = resultSet.getString("username");
-                job = resultSet.getString("job");
-                System.out.println(username +" "+job+" 환영해요");
-=======
                 id2 = resultSet.getInt("id");
                 name = resultSet.getString("username");
                 job2 = resultSet.getString("job");
@@ -42,7 +32,6 @@ public class UserRepository {
                 System.out.println(name +"님 "+" 환영해요");
                 System.out.println("현재 캐릭터는 입니다.");
                 // tttt
->>>>>>> taeyeol
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -52,11 +41,7 @@ public class UserRepository {
         } catch (SQLException e) {
             System.out.println("conn 닫기 실패");;
         }
-<<<<<<< HEAD
-        return username != null;
-=======
         return name != null;
->>>>>>> taeyeol
     }
 
     public void insertUsers(SignupDto dto) {
