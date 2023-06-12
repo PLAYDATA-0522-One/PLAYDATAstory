@@ -30,6 +30,7 @@ public class UserRepository {
                 GetJobRepository.getjobList(id2,name,job2);
                 System.out.println(name +"님 "+" 환영해요");
                 System.out.println("현재 캐릭터는 입니다.");
+                // tttt
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
