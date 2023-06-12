@@ -1,5 +1,6 @@
 package GameController;
 
+import Global.Manager;
 import Map.GameMap;
 import domain.SignupDto;
 import repository.UserRepository;
@@ -8,7 +9,7 @@ import service.UserService;
 import java.util.Scanner;
 
 public class CharacterController {
-    static GameMap map = new GameMap();
+    static GameMap map = new GameMap(); // 얘가 sc를 받아서 맵을 만들어야함.
 
     private static UserService service = UserService.getInstance();
 
@@ -37,6 +38,9 @@ public class CharacterController {
         System.out.println("insert pw : ");
         String pw = sc.nextLine();
         boolean check = service.login(id,pw); //-> 이게 로그인이 되었다는 신호
+        // 여기서 맵을 만들 예정.
+        new Manager().saveHp(); // 첫 시작 hp 저장. 이걸 클래스 만들때 같이 처리해도될듯.
+
         while (check){
             map.select();
 
