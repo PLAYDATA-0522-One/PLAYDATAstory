@@ -9,7 +9,7 @@ public class GameMap {
 
     Scanner sc = new Scanner(System.in);
     static field[][] stage = new field[3][4]; //.. 각 필드타입이
-    static String[][] map = new String[3][4];
+    public static String[][] map = new String[3][4];
     //static int[][] map = new int[3][4]; // 맵으로 사용 예정 4 X 5 짜리
     static int i, j = 0; // 위치데이터는 i,j가 갖고있다. // 캐릭터가 갖고있어야한다. 수정필요.
     String errSentence = "그곳으로 이동할 수 없습니다.";
@@ -20,7 +20,14 @@ public class GameMap {
 //    public Move(Human human) {
 //        this.human = human;
 //    }
+    public static void isclearMap(){
+        for (int i = 0; i < stage.length ; i++) {
+            for (int j = 0; j < stage[i].length; j++) {
+                map[i][j] = stage[i][j].isClear();
+            }
+        }
 
+    }
     public static void makeMap(){
         for (int i = 0; i < stage.length ; i++) {
             for (int j = 0; j < stage[i].length; j++) {
@@ -39,7 +46,15 @@ public class GameMap {
     }
 
     public void select() {
-        System.out.println( );
+        isclearMap();
+        map[i][j] = "here ";
+
+        System.out.println("");
+        for (int i = 0; i < map.length; i++){
+            System.out.println("|"+map[i][0]+"|||" +map[i][1] +"|||"+ map[i][2] +"|||"+map[i][3]+"|" );
+        }
+        System.out.println("");
+        System.out.println("이동할 방향을 정해주세요.");
         System.out.println("1. 위 2. 아래 3. 오른쪽 4. 왼쪽");
         try {
             int selectDirection = Integer.parseInt(sc.nextLine());
@@ -59,13 +74,22 @@ public class GameMap {
         }
     }
 
-    private void changeDirection(int Direction){
+    private void changeDirection(int direction){
         int tempI = i;
         int tempJ = j;
 
         try {
-            situation(Direction);
-            stage[i][j].eventGeneration();
+            situation(direction);
+            if (!stage[i][j].clearCheck()){
+                stage[i][j].eventGeneration();
+            }else if (stage[i][j].clearCheck()){
+                System.out.println("이미 클리어 하였습니다.");
+                System.out.println("다시 선택해주세요.");
+                i = tempI;
+                j = tempJ;
+                select();
+
+            }
             // -> 여기에서 정보 업데이트
         } catch (Exception e) {
             System.out.println(errSentence);

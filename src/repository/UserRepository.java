@@ -1,5 +1,6 @@
 package repository;
 
+import Global.Manager;
 import character.Human;
 import character.Humaninfo;
 import config.JdbcConnection;
@@ -29,10 +30,17 @@ public class UserRepository {
                 name = resultSet.getString("username");
                 job2 = resultSet.getString("job");
                 GetJobRepository.getjobList(id2,name,job2);
-                System.out.println(name +"님 "+" 환영해요");
-                System.out.println("현재 캐릭터는 입니다.");
+//                if(GetJobRepository.checkUserInfo(id2))
+//                {
+//                    GetJobRepository.getjobList(id2,name,job2);
+//                }
+                System.out.println("환영합니다 "+name+"님 당신의 직업은 "+job2+"입니다.");
+
                 // tttt
+                // -> 이걸로 클래스
             }
+            new UserInfoRepository().userInfo(name);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

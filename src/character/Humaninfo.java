@@ -6,14 +6,14 @@ public class Humaninfo{
     String job;
     String name;
     int hp;
-    int Attackpoint;
+    int attackpoint;
 
     public Humaninfo(int id, String job, String name, int hp, int attackpoint) {
         this.id = id;
         this.job = job;
         this.name = name;
         this.hp = hp;
-        Attackpoint = attackpoint;
+        this.attackpoint = attackpoint;
     }
 
 
@@ -32,11 +32,11 @@ public class Humaninfo{
     }
 
     public int getAttackpoint() {
-        return Attackpoint;
+        return attackpoint;
     }
 
     public void setAttackpoint(int attackpoint) {
-        Attackpoint = attackpoint;
+        this.attackpoint = attackpoint;
     }
 
     public int getId() {

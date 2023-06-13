@@ -27,8 +27,6 @@ public class GetJobRepository {
             while (resultSet.next()) {
                 hp = resultSet.getInt("hp");
                 attackpoint = resultSet.getInt("attackpoint");
-                System.out.println(hp);
-                System.out.println(attackpoint);
                 InformationDto dto = new InformationDto(hp,attackpoint,id,name,job);
                 insertUserInfo(dto);
                 Humaninfo humaninfo = new Humaninfo(id,job,name,hp,attackpoint);
@@ -66,5 +64,32 @@ public class GetJobRepository {
         } catch (SQLException e) {
             System.out.println("conn 닫기 실패");;
         }
+    }
+    public static boolean checkUserInfo(int id) {
+        Connection conn = new JdbcConnection().getJdbc();
+        String sql = "select * from user_id where id = ?";
+        String username = null;
+        String job2 = null;
+        Integer hp =null;
+        boolean ret = false;
+        Integer attackpoint = null;
+        try {
+            PreparedStatement psmt = conn.prepareStatement(sql);
+            psmt.setInt(1,id);
+            ResultSet resultSet = psmt.executeQuery();
+            while (resultSet.next()) {
+                id = resultSet.getInt("id");
+                ret =true;
+                return ret;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("conn 닫기 실패");;
+        }
+        return ret;
     }
 }

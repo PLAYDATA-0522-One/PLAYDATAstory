@@ -45,7 +45,7 @@ public class Town {
 
         // 아이템 구매 로직
         System.out.println(item + "을(를) 구매하셨습니다!");
-
+        // 스텟 변경
         sc.close();
     }
 
@@ -55,9 +55,9 @@ public class Town {
 
         String mode = sc.nextLine();
 
-        if (mode == "1") {
+        if (mode.equals("1")) {
             recovery();
-        } else if (mode == "2") {
+        } else if (mode.equals("2")) {
             System.out.println("신전에서 나갑니다.");
         } else {
             System.out.println("잘못된 입력입니다.");

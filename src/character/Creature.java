@@ -10,7 +10,7 @@ public class Creature {
 
     public Creature(int hp,int attackpoint)
     {   this.nowHp = hp;
-        this.hp=hp;
+        this.hp = hp;
         this.attackpoint=attackpoint;
 
     }
@@ -19,7 +19,7 @@ public class Creature {
         return hp;
     }
 
-    public int getNowHp(){return nowHp;}
+    public int getNowHp(){return this.nowHp;}
 
     public void setNowHp(int hp) { // 포션 먹을 때 필요함 .
         this.nowHp = hp;
@@ -34,10 +34,6 @@ public class Creature {
     }
 
 
-    public void GetAttackpoint(int attackpoint) { // 포션 먹을 때 필요함 .
-        this.attackpoint = attackpoint;
-    }
-
     public int makeAttackpoint() { //어택포인트 연산에 필요
         int attackValue = (int) (attackpoint * Math.random()) ;
         return attackValue;
@@ -49,7 +45,14 @@ public class Creature {
 
 
     public String getDamage (Creature creature) {
-        nowHp = nowHp - creature.getAttackpoint();
-    return creature.getAttackpoint() + "의 데미지를 받았습니다.";
+        int damage = (int)(creature.makeAttackpoint());
+        nowHp = nowHp - damage;
+    return damage + "의 데미지를 받았습니다.";
+    }
+
+    public String defenceDamage (Creature creature){
+        int damage = 1 + (int)(creature.makeAttackpoint()/2) ;
+        nowHp = nowHp - damage;
+        return damage + "의 데미지를 받았습니다.";
     }
 }
