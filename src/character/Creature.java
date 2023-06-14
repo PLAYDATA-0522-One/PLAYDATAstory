@@ -1,4 +1,4 @@
-package character;
+﻿package character;
 
 public class Creature {
     private int hp;
@@ -8,6 +8,7 @@ public class Creature {
     {
         this.hp=hp;
         this.attackpoint=attackpoint;
+        System.out.println("st");
 
     }
 
