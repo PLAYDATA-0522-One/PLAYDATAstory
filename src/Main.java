@@ -1,13 +1,22 @@
+<<<<<<< HEAD
 import mainui.MainUi;
 import character.Human;
 import character.Jobclass;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+=======
+import GameController.MainController;
+import GameController.CharacterController;
+import Global.Manager;
+import character.Human;
+
+>>>>>>> taeyeol
 public class Main {
     static Scanner sc = new Scanner(System.in);
     static List<Human> BOX= new ArrayList<>();
     public static void main(String[] args) {
+<<<<<<< HEAD
         MainUi mainUi = new MainUi();
         mainUi.selectMenu(sc); //-> 게임 시작 / 게임 종료  // 게임 시작 -> Static bit on : Gamestart
 
@@ -69,5 +78,12 @@ public class Main {
             makeHuman();
         }
     }
+=======
+
+                new MainController().selectMenu(); // 거의 끝남.
+
+    }
+
+>>>>>>> taeyeol
 }
 
